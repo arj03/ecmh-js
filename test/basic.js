@@ -125,6 +125,23 @@ test('d1 + d2 + d3 - d3', (t) => {
   t.end()
 })
 
+test('d1 + d2 + d3 MS - (d2 + d3) MS', (t) => {
+  const mset = MultiSet()
+  mset.addItem(hashBytes(D1_BYTES))
+  mset.addItem(hashBytes(D2_BYTES))
+  mset.addItem(hashBytes(D3_BYTES))
+
+  const mset2 = MultiSet()
+  mset2.addItem(hashBytes(D2_BYTES))
+  mset2.addItem(hashBytes(D3_BYTES))
+
+  mset.removeSet(mset2)
+
+  const expected = "F883195933A687170C34FA1ADEC66FE2861889279FB12C03A3FB0CA68AD87893"
+  t.equal(mset.getHash().toUpperCase(), expected)
+  t.end()
+})
+
 // order doesn't matter
 test('d2 + d1 + d3', (t) => {
   const mset = MultiSet()

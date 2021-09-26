@@ -75,15 +75,22 @@ function MultiSet() {
     addSet(ms) {
       self.addPoint(ms.point)
     },
-    
-    removeItem(sha256Buffer) {
-      if (sha256Buffer === null || sha256Buffer === EMPTY_HASH) return
 
-      const point = getPoint(sha256Buffer)
+    removePoint(point) {
       if (point.x === self.point.x && point.y === self.point.y)
         self.point = new secp256k1.Point(0, 0)
       else
         self.point = self.point.subtract(point)
+    },
+
+    removeItem(sha256Buffer) {
+      if (sha256Buffer === null || sha256Buffer === EMPTY_HASH) return
+
+      self.removePoint(getPoint(sha256Buffer))
+    },
+
+    removeSet(ms) {
+      self.removePoint(ms.point)
     },
 
     getHash() {
