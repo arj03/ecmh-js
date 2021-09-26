@@ -1,0 +1,24 @@
+{
+  "name": "ECMH-js",
+  "description": "Multiset hash using elliptic curves",
+  "version": "0.1.0",
+  "homepage": "https://github.com/arj03/ecmh-js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/arj03/ecmh-js.git"
+  },
+  "dependencies": {
+    "bigint-buffer": "^1.1.5",
+    "noble-secp256k1": "^1.2.9"
+  },
+  "devDependencies": {
+    "tap-bail": "^1.0.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.2.2"
+  },
+  "scripts": {
+    "test": "tape test/*.js | tap-bail | tap-spec"
+  },
+  "author": "Anders Rune Jensen <arj03@protonmail.ch>",
+  "license": "Beerware"
+}
