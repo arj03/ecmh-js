@@ -31,7 +31,7 @@ function MultiSet() {
   }
 
   function getPoint(sha256Buffer) {
-    for (let n = BigInt(0); true; ++n) {
+    for (let n = 0n; true; ++n) {
       const hash = crypto.createHash('sha256')
 
       let buf = Buffer.alloc(8)
