@@ -93,9 +93,9 @@ function MultiSet() {
       self.removePoint(ms.point)
     },
 
-    getHash() {
+    getHash(format='hex') {
       if (self.point.x === 0 && self.point.y === 0) {
-        return EMPTY_HASH.toString('hex')
+        return EMPTY_HASH.toString(format)
       }
 
       const hash = crypto.createHash('sha256')
@@ -105,7 +105,7 @@ function MultiSet() {
       const bufY = bigIntBuffer.toBufferBE(self.point.y, 32)
       hash.update(bufY)
 
-      return hash.digest('hex')
+      return hash.digest(format)
     }
   }
 
