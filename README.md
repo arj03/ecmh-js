@@ -42,8 +42,10 @@ console.log("d1 hash same after removal", mset.getHash('base64'))
 // => d1 hash same after removal +IMZWTOmhxcMNPoa3sZv4oYYiSefsSwDo/sMporYeJM=
 ```
 
-
 ## Notes
+
+Performance (see perf.js) is around 0.4ms per item on a modern laptop
+(2020), so 2500 items/s.
 
 C++ implementation: https://reviews.bitcoinabc.org/D1072#change-bEnKePuHRgCO
 
